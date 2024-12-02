@@ -94,7 +94,7 @@ footer {
 }
 
 /* Play knop */
-.play {
+.playpause-track {
     grid-column: 3/4;
     grid-row: 1/3;
     align-self: center;
@@ -102,19 +102,32 @@ footer {
     width: 2rem;
     height: 2rem;
     border-radius: 50%; 
+    transition: .2s ease-in;
 
     /* Grid als parent om items te centreren */
     display: grid; 
     place-items: center;
 }
 
+.playpause-track:hover {
+    background-color: rgb(251, 0, 238);    
+    transition: .2s ease-in;
+}
+
 /* Play SVG afbeelding */
-.play img {
+.playpause-track img {
     width: 1rem;
+    margin-left: .2rem;
 }
 
 /* Pauze knop wanneer track aan het spelen is */
-.play img.pause-track {
+.playpause-track img.pause-track {
     content: url("/assests/pause.svg");
+    margin-right: .2rem;
+}
+
+/* Pauze knop wanneer track aan het spelen is */
+.playpause-track img.play-track {
+    content: url("/assests/play.svg");
 }
 
