@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Screen reader only */
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+body {
+    font-size: 16px;
+    --padding-button: .3rem .6rem;
+    --border-button: .5rem;
+    --border-width: 2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol, li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+    border: inherit;
+    background: none;
+}
+
+/* Player */
+footer {
+    /* Grid layout, player in midden van pagina*/
+    display: flex; 
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+/* Grid layout voor content in player */
+.player {
+    display: grid; 
+    grid-template-columns: auto auto auto; 
+    grid-template-rows: auto auto; 
+    filter: drop-shadow(0px 0px 8px #bebebe);
+    border-radius: .5rem;
+    width: 90vw;
+    max-width: 25rem;
+    height: 5.5rem;
+    padding: .5rem;
+
+    position: fixed; 
+    bottom: 1.5rem;
+    z-index: 3; 
+}
+
+/* Titel van show */
+.title-player {
+    grid-column: 2/4;
+    grid-row: 1/2;
+    align-self: center; 
+    justify-self: start;
+    text-transform: uppercase;
+}
+
+/* Titel van liedje */
+.song-player {
+    grid-column: 2/3; 
+    grid-row: 2/3;
+    align-self: start; 
+    justify-self: start;
+
+    /* Flex als parent om item te centreren */
+    display: flex; 
+    align-items: center;
+    gap: .5rem;
+}
+
+/* Album afbeelding */
+.img-player {
+    grid-column: 1/2; 
+    grid-row: 1/3;
+    align-self: center;
+    justify-self: left;
+    width: 4.5rem;
+    border-radius: .2rem;
+}
+
+/* Play knop */
+.play {
+    grid-column: 3/4;
+    grid-row: 1/3;
+    align-self: center;
+    justify-self: right;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%; 
+
+    /* Grid als parent om items te centreren */
+    display: grid; 
+    place-items: center;
+}
+
+/* Play SVG afbeelding */
+.play img {
+    width: 1rem;
+}
+
+/* Pauze knop wanneer track aan het spelen is */
+.play img.pause-track {
+    content: url("/assests/pause.svg");
+}
+
