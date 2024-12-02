@@ -24,6 +24,13 @@
                 <img class="play-img" src="./assests/play.svg" alt="" width="30">
             </button>
         </section>
+
+        <!-- PROGRESS BAR -->
+         <div class="slider-container">
+            <div class="current-time">00:00</div>
+            <input type="range" min="1" max="100" value="0" class="seek-slider" onchange="seekTo()">
+            <div class="total-duration">00:00</div>
+         </div>
     </footer>
 
     <script src="./scripts/script.js"></script>
