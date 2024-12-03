@@ -1,7 +1,7 @@
 * {
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Screen reader only */
@@ -26,7 +26,9 @@ a {
     text-decoration: none;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
     list-style-type: none;
 }
 
@@ -39,53 +41,53 @@ button {
 /* Player */
 footer {
     /* Grid layout, player in midden van pagina*/
-    display: flex; 
+    display: flex;
     justify-content: center;
     margin-top: 5rem;
 }
 
 /* Grid layout voor content in player */
 .player {
-    display: grid; 
-    grid-template-columns: auto auto auto; 
-    grid-template-rows: auto auto; 
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
     filter: drop-shadow(0px 0px 8px #bebebe);
     border-radius: .5rem;
     width: 90vw;
     max-width: 25rem;
-    height: 5.5rem;
+    height: 6rem;
     padding: .5rem;
 
-    position: fixed; 
+    position: fixed;
     bottom: 1.5rem;
-    z-index: 3; 
+    z-index: 3;
 }
 
 /* Titel van show */
 .title-player {
     grid-column: 2/4;
     grid-row: 1/2;
-    align-self: center; 
+    align-self: center;
     justify-self: start;
     text-transform: uppercase;
 }
 
 /* Titel van liedje */
 .song-player {
-    grid-column: 2/3; 
+    grid-column: 2/3;
     grid-row: 2/3;
-    align-self: start; 
+    align-self: start;
     justify-self: start;
 
     /* Flex als parent om item te centreren */
-    display: flex; 
+    display: flex;
     align-items: center;
     gap: .5rem;
 }
 
 /* Album afbeelding */
 .img-player {
-    grid-column: 1/2; 
+    grid-column: 1/2;
     grid-row: 1/3;
     align-self: center;
     justify-self: left;
@@ -101,16 +103,16 @@ footer {
     justify-self: right;
     width: 2rem;
     height: 2rem;
-    border-radius: 50%; 
+    border-radius: 50%;
     transition: .2s ease-in;
 
     /* Grid als parent om items te centreren */
-    display: grid; 
+    display: grid;
     place-items: center;
 }
 
 .playpause-track:hover {
-    background-color: rgb(251, 0, 238);    
+    background-color: rgb(251, 0, 238);
     transition: .2s ease-in;
 }
 
@@ -132,36 +134,92 @@ footer {
 }
 
 .slider-container {
-    width: 75%;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-column: 1/-1;
+    grid-row: 3/4;
+
+    margin-left: -.5rem;
+    margin-right: -.5rem;
 }
 
-/* Modify the appearance of the slider thumb */
-.seek-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  background: white;
-  cursor: pointer;
-  border-radius: 50%;
-}
- 
 /* Change the opacity when mouse is hovered */
 .seek-slider:hover {
-  opacity: 1.0;
-}
- 
-.seek-slider {
-  width: 60%;
+    opacity: 1.0;
 }
 
+/* Breedte slider */
+.seek-slider {
+    width: 100%;
+}
+
+/* Current time & duration niet laten zien */
 .current-time,
 .total-duration {
-  padding: 10px;
+    display: none;
 }
 
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #e60063;
+    border-radius: 0rem 0rem .3rem .3rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    /* Override default look */
+    appearance: none;
+    margin-top: -4px;
+
+    /* Centers thumb on the track */
+    background-color: #e60063;
+    filter: drop-shadow(0px 0px 8px black);
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 3px solid #e60063;
+    outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+    background-color: #e60063;
+    border-radius: 0rem 0rem .3rem .3rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+    background-color: #e60063;
+    filter: drop-shadow(0px 0px 8px black);
+    border: none;
+
+    /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+    outline: 3px solid #e60063;
+    outline-offset: 0.125rem;
+}

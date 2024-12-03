@@ -23,14 +23,16 @@
             <button class="secondary veronica-secondary playpause-track" aria-label="Speel/Pauzeer nummer">
                 <img class="play-img" src="./assests/play.svg" alt="" width="30">
             </button>
+        
+            <!-- PROGRESS BAR -->
+            <div class="slider-container">
+                <div class="current-time">00:00</div>
+                <input type="range" min="1" max="100" value="0" class="seek-slider">
+                <div class="total-duration">00:00</div>
+            </div>
         </section>
 
-        <!-- PROGRESS BAR -->
-         <div class="slider-container">
-            <div class="current-time">00:00</div>
-            <input type="range" min="1" max="100" value="0" class="seek-slider">
-            <div class="total-duration">00:00</div>
-         </div>
+
     </footer>
 
     <script src="./scripts/script.js"></script>
