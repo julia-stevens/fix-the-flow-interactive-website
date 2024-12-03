@@ -15,22 +15,21 @@ let updateTimer;
 
 let currentTrack = document.createElement("audio"); // nieuwe audio variabele
 
-let trackList = [ // array met nummers
+let trackList = [ // array met content player 
     {
-        // KILLER QUEEN - QUEEN
-        path: "./assests/queen-killer-queen.mp3", 
-        name: "Goud van Oud", 
-        artist: "Killer Queen - Queen", 
-        image: "./assests/sheer-heart-attack.jpg"
-    },
-    {
-        // BACK TO BLACK - AMY WINEHOUSE
+        // [0] BACK TO BLACK - AMY WINEHOUSE
         path: "./assests/Back-To-Black_Amy-Winehouse.mp3", // path van eerste nummer
         name: "Goud van Oud",
         artist: "Back to Black - Amy Winehouse", 
         image: "./assests/back-to-black-thumbnail.png"
-    } 
-
+    },
+    {
+        // [1] KILLER QUEEN - QUEEN
+        path: "./assests/queen-killer-queen.mp3", 
+        name: "Goud van Oud", 
+        artist: "Killer Queen - Queen", 
+        image: "./assests/sheer-heart-attack.jpg"
+    }
 ]
 
 loadTrack(trackIndex); // laad trackIndex
@@ -77,7 +76,6 @@ function nextTrack() {
 
 function seekTo() {
     seekTo = currentTrack.duration * (seekSlider.value / 100);
-
     currentTrack.currentTime = seekTo; 
 }
 
