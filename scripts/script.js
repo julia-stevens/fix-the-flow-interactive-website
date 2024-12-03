@@ -1,6 +1,10 @@
 let playPauseButton = document.querySelector(".playpause-track"); // play/pause knop
 let buttonImage = document.querySelector(".playpause-track img"); // play/pause img
 
+let showName = document.querySelector(".show-name"); // h2 element voor show naam
+let trackNameArtist = document.querySelector(".track-name-artist"); // p element voor titel nummer en artiest
+let trackArt = document.querySelector(".track-art"); // album cover img
+
 let seekSlider = document.querySelector(".seek-slider");
 let currentTime = document.querySelector(".current-time");
 let totalDuration = document.querySelector(".total-duration");
@@ -13,31 +17,27 @@ let currentTrack = document.createElement("audio"); // nieuwe audio variabele
 
 let trackList = [ // array met nummers
     {
-        path: "./assests/Back-To-Black_Amy-Winehouse.mp3" // path van eerste nummer
-    }
+        // KILLER QUEEN - QUEEN
+        path: "./assests/queen-killer-queen.mp3", 
+        name: "Goud van Oud", 
+        artist: "Killer Queen - Queen", 
+        image: "./assests/sheer-heart-attack.jpg"
+    },
+    {
+        // BACK TO BLACK - AMY WINEHOUSE
+        path: "./assests/Back-To-Black_Amy-Winehouse.mp3", // path van eerste nummer
+        name: "Goud van Oud",
+        artist: "Back to Black - Amy Winehouse", 
+        image: "./assests/back-to-black-thumbnail.png"
+    } 
+
 ]
-
-
-playPauseButton.addEventListener("click", playPauseTrack); // bij klik op knop, activeer functie playPauseTrack
-seekSlider.addEventListener("change", seekTo);
-
 
 loadTrack(trackIndex); // laad trackIndex
 
-function playPauseTrack() { 
-    if (isPlaying === false) { // als niks aan het afspelen, play currentTrack, remove play icon, add pause icon, isPlaying = true
-        currentTrack.play(); 
-        isPlaying = true; 
-        buttonImage.classList.remove("play-track");
-        buttonImage.classList.add("pause-track");
+playPauseButton.addEventListener("click", playPauseTrack); // bij klik op knop, activeer functie playPauseTrack
 
-    } else { // anders (als wel aan het afspelen), pause currentTrack, remove pause icon, add play icon, isPlaying = false
-        currentTrack.pause();
-        isPlaying = false;
-        buttonImage.classList.remove("pause-track");
-        buttonImage.classList.add("play-track");
-    }
-}
+seekSlider.addEventListener("change", seekTo);
 
 function loadTrack(trackIndex) {
     // clear previous seek timer
@@ -47,14 +47,32 @@ function loadTrack(trackIndex) {
     // load new track
     currentTrack.src = trackList[trackIndex].path; // source currentTrack = haal uit array (start bij 0 (dus eerste nummer) en neem het path)
     currentTrack.load(); // laad currentTrack variabele
+    
+    // update details
+    trackNameArtist.textContent = trackList[trackIndex].artist;
+    showName.textContent = trackList[trackIndex].name;
+    trackArt.src = trackList[trackIndex].image;
 
+    // 
     updateTimer = setInterval(seekUpdate, 1000);
+
+    //
+    currentTrack.addEventListener("ended", nextTrack);
 }
 
 function resetValues() {
     currentTime.textContent = "00:00";
     totalDuration.textContent = "00:00";
     seekSlider.value = 0;
+}
+
+function nextTrack() {
+    if (trackIndex < trackList.length - 1) 
+        trackIndex += 1; 
+    else trackIndex = 0; 
+
+    loadTrack(trackIndex);
+    playTrack();
 }
 
 function seekTo() {
@@ -89,6 +107,24 @@ function seekUpdate() {
     }
 }
 
+function playPauseTrack() { 
+    if (isPlaying === false) { // als niks aan het afspelen, play currentTrack, remove play icon, add pause icon, isPlaying = true
+        currentTrack.play(); 
+        isPlaying = true; 
+        buttonImage.classList.remove("play-track");
+        buttonImage.classList.add("pause-track");
 
+    } else { // anders (als wel aan het afspelen), pause currentTrack, remove pause icon, add play icon, isPlaying = false
+        currentTrack.pause();
+        isPlaying = false;
+        buttonImage.classList.remove("pause-track");
+        buttonImage.classList.add("play-track");
+    }
+}
 
-
+function playTrack() {
+    currentTrack.play();
+    isPlaying = true; 
+    buttonImage.classList.remove("play-track");
+    buttonImage.classList.add("pause-track");
+}
