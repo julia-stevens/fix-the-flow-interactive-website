@@ -1,3 +1,13 @@
+// DETAILS
+// let details = document.querySelector(".details-slam");
+
+// details.addEventListener("click", openDetails);
+
+// function openDetails() {
+//     details.open = true; 
+// }
+
+// PLAYER
 let playPauseButton = document.querySelector(".playpause-track"); // play/pause knop
 let buttonImage = document.querySelector(".playpause-track img"); // play/pause img
 
@@ -52,17 +62,33 @@ function loadTrack(trackIndex) {
     showName.textContent = trackList[trackIndex].name;
     trackArt.src = trackList[trackIndex].image;
 
-    // 
+    // update elke seconde
     updateTimer = setInterval(seekUpdate, 1000);
 
-    //
+    // wanneer track eindigd, roep "nextTrack" op
     currentTrack.addEventListener("ended", nextTrack);
 }
 
-function resetValues() {
-    currentTime.textContent = "00:00";
-    totalDuration.textContent = "00:00";
-    seekSlider.value = 0;
+function playPauseTrack() { 
+    if (isPlaying === false) { // als niks aan het afspelen, play currentTrack, remove play icon, add pause icon, isPlaying = true
+        currentTrack.play(); 
+        isPlaying = true; 
+        buttonImage.classList.remove("play-track");
+        buttonImage.classList.add("pause-track");
+
+    } else { // anders (als wel aan het afspelen), pause currentTrack, remove pause icon, add play icon, isPlaying = false
+        currentTrack.pause();
+        isPlaying = false;
+        buttonImage.classList.remove("pause-track");
+        buttonImage.classList.add("play-track");
+    }
+}
+
+function playTrack() {
+    currentTrack.play();
+    isPlaying = true; 
+    buttonImage.classList.remove("play-track");
+    buttonImage.classList.add("pause-track");
 }
 
 function nextTrack() {
@@ -72,6 +98,12 @@ function nextTrack() {
 
     loadTrack(trackIndex);
     playTrack();
+}
+
+function resetValues() {
+    currentTime.textContent = "00:00";
+    totalDuration.textContent = "00:00";
+    seekSlider.value = 0;
 }
 
 function seekTo() {
@@ -103,26 +135,4 @@ function seekUpdate() {
         // currentTime.textContent = currentMinutes + ":" + currentSeconds;
         // totalDuration.textContent = durationMinutes + ":" + durationSeconds;
     }
-}
-
-function playPauseTrack() { 
-    if (isPlaying === false) { // als niks aan het afspelen, play currentTrack, remove play icon, add pause icon, isPlaying = true
-        currentTrack.play(); 
-        isPlaying = true; 
-        buttonImage.classList.remove("play-track");
-        buttonImage.classList.add("pause-track");
-
-    } else { // anders (als wel aan het afspelen), pause currentTrack, remove pause icon, add play icon, isPlaying = false
-        currentTrack.pause();
-        isPlaying = false;
-        buttonImage.classList.remove("pause-track");
-        buttonImage.classList.add("play-track");
-    }
-}
-
-function playTrack() {
-    currentTrack.play();
-    isPlaying = true; 
-    buttonImage.classList.remove("play-track");
-    buttonImage.classList.add("pause-track");
 }
