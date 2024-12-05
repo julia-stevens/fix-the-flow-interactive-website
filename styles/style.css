@@ -30,6 +30,8 @@ ul,
 ol,
 li {
     list-style-type: none;
+    margin: 0; 
+    padding: 0; 
 }
 
 button {
@@ -212,88 +214,133 @@ ol > li {
         display: flex; 
         justify-content: flex-end;
     }
-
 }
 
-
-
-
-/* Styling li */
-/* main li { */
-    /* background-color: rgb(238, 155, 228);
-    width: 5rem;
-    height: 5rem; */
-
-    /* GRID als parent */
-    /* display: grid; 
-    place-items: center; */
-/* } */
-
+/* Styling details */
 details {
     cursor: pointer; 
-
+    border: 1px solid #CCCCCC;
+    border-right: transparent;
+    border-top: transparent;
 
     ::marker {
         content: '';
     }
 }
 
+/* FLEX layout details wanneer open */
 details[open] {
     flex-grow: 1; 
+    padding: 0 1rem;
+    container: overig-details / inline-size;
 
-    /* GRID als parent */
-    place-items: center;
+    /* FLEX als parent */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Verticale text wanneer details gesloten */
 details summary {
     writing-mode: vertical-lr;
     padding: .5rem 0rem;
 }
 
+/* Horizontale text wanneer details geopend */
 details[open] summary {
     writing-mode: horizontal-tb;
 }
 
+/* FLEX layout cards in details */
 details ol {
     display: flex; 
     flex-direction: column; 
     gap: 1rem;
-
-    padding: 1rem;
 }
 
-/* SLAM */
-details:nth-of-type(1) {
-    /* background-color: forestgreen; */
+/* Bij container kleiner dan 20rem, andere GRID LAYOUT show-cards */
+@container overig-details (width < 20rem) {
+    /* GRID layout show-cards op desktop */
+    .others-program .show-card {
+        /* Grid layout overige show cards */
+        .show-card {
+            grid-template-columns: .1fr auto;
+            grid-template-rows: auto auto auto auto 1fr;
+        }
 
-    border: 1px solid #CCCCCC;
-    border-right: transparent;
-    border-top: transparent;
+        /* Gekleurde lijn */
+        .colored-line {
+            grid-column: 1/2;
+            grid-row: 1/7;
+        }
+
+        /* Titel programmering */
+        .title-card {
+            grid-row: 1/2;
+            grid-column: 2/-1;
+            align-self: start; 
+            justify-self: center;
+            padding-top: .5rem;
+            white-space: nowrap; 
+        }
+
+        /* Title wordt niet afgebroken en animatie gekoppeld */
+        .scroll-title {
+            animation: scroll-title 7s linear infinite;
+            display: inline-block; 
+            padding-left: 1.5rem; 
+            white-space: nowrap;
+        }
+        
+        .scroll-title::after {
+            content: ''; 
+            display: inline-block;
+            width: 1rem; 
+        }
+                
+        /* Tijd programmering */
+        .time-card {
+            grid-row: 2/3; 
+            grid-column: 2/-1;
+            align-self: end; 
+            justify-self: center;
+        }
+
+        /* Beschrijving show */
+        .info-card {
+            display: none;
+        }
+
+        /* Afbeelding show */
+        .thumbnail-card {
+            grid-row: 3/4;
+            grid-column: 2/-1;
+            align-self: center; 
+            justify-self: center;
+            width: 40%;
+        }
+
+        /* Naam DJ op card */
+        .dj-card {
+            grid-row: 4/5; 
+            grid-column: 2/-1;
+            align-self: start; 
+            justify-self: center;
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* Link op card */
+        .link-card {
+            grid-row: 5/6; 
+            grid-column: 2/-1;
+            align-self: center;
+            justify-self: center;
+            margin: .5rem;
+        }
+    }
+
 }
-
-/* 100% NL */
-details:nth-of-type(2) {
-    /* background-color: greenyellow; */
-
-    border: 1px solid #CCCCCC;
-    border-right: transparent;
-    border-top: transparent;
-}
-
-/* SUBLIME */
-details:nth-of-type(3) {
-    /* background-color: lightseagreen; */
-
-    border: 1px solid #CCCCCC;
-    border-top: transparent;
-}
-
-
-
-
-
-
-
 
 /* Player */
 footer {
