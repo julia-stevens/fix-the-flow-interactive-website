@@ -29,9 +29,9 @@ let trackList = [ // array met content player
     {
         // [0] BACK TO BLACK - AMY WINEHOUSE
         path: "./assests/Back-To-Black_Amy-Winehouse.mp3", // path van eerste nummer
-        name: "Goud van Oud",
-        artist: "Back to Black - Amy Winehouse", 
-        image: "./assests/back-to-black-thumbnail.png"
+        name: "Goud van Oud", // show-name
+        artist: "Back to Black - Amy Winehouse", // track-name-artist
+        image: "./assests/back-to-black-thumbnail.png" // track-art
     },
     {
         // [1] KILLER QUEEN - QUEEN
@@ -58,9 +58,9 @@ function loadTrack(trackIndex) {
     currentTrack.load(); // laad currentTrack variabele
     
     // update details
-    trackNameArtist.textContent = trackList[trackIndex].artist;
-    showName.textContent = trackList[trackIndex].name;
-    trackArt.src = trackList[trackIndex].image;
+    trackNameArtist.textContent = trackList[trackIndex].artist; // laad trackNameArtist met artist uit trackList
+    showName.textContent = trackList[trackIndex].name; // laad showName met name uit trackList
+    trackArt.src = trackList[trackIndex].image; // laad trackArt met image uit trackList
 
     // update elke seconde
     updateTimer = setInterval(seekUpdate, 1000);
@@ -84,20 +84,20 @@ function playPauseTrack() {
     }
 }
 
-function playTrack() {
-    currentTrack.play();
+function playTrack() { 
+    currentTrack.play(); // play currentTrack, remove play icon, add pause icon, isPlaying = true
     isPlaying = true; 
     buttonImage.classList.remove("play-track");
     buttonImage.classList.add("pause-track");
 }
 
-function nextTrack() {
-    if (trackIndex < trackList.length - 1) 
-        trackIndex += 1; 
-    else trackIndex = 0; 
+function nextTrack() { // 
+    if (trackIndex < trackList.length - 1) // als huidige trackIndex kleiner is dan de laatste index van de trackList
+        trackIndex += 1; // dan tel er 1 bij op
+    else trackIndex = 0;  // anders trackIndex = 0; en dus terug naar eerste nummer in lijst
 
-    loadTrack(trackIndex);
-    playTrack();
+    loadTrack(trackIndex); // laad de trackIndex
+    playTrack(); // speel nummer af
 }
 
 function resetValues() {
@@ -107,17 +107,19 @@ function resetValues() {
 }
 
 function seekTo() {
-    seekTo = currentTrack.duration * (seekSlider.value / 100);
-    currentTrack.currentTime = seekTo; 
+    // duration = lengte in seconde 
+    // seekSlider.value is lengte van slider van 0 tot 100
+    seekTo = currentTrack.duration * (seekSlider.value / 100); // berekent relatieve afstand van de duration ten opzichte van de slider (0 tot 100)
+    currentTrack.currentTime = seekTo; // plaats op juiste plek in slider
 }
 
 function seekUpdate() {
-    let seekPosition = 0; 
+    let seekPosition = 0; // slider begint bij 0 
 
     if (!isNaN(currentTrack.duration)) {
         // update position slider
-        seekPosition = currentTrack.currentTime * (100 / currentTrack.duration); 
-        seekSlider.value = seekPosition;
+        seekPosition = currentTrack.currentTime * (100 / currentTrack.duration); // berekent relatieve afstand van de duration ten opzichte van de slider (0 tot 100)
+        seekSlider.value = seekPosition; // plaats op juiste plek in slider
 
         // calculate current time
         // let currentMinutes = Math.floor(currentTrack.currentTime / 60);
