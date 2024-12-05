@@ -383,7 +383,7 @@ footer {
 }
 
 /* Titel van show */
-.title-player {
+.show-name {
     grid-column: 2/4;
     grid-row: 1/2;
     align-self: center;
@@ -392,7 +392,7 @@ footer {
 }
 
 /* Titel van liedje */
-.song-player {
+.track-name-artist {
     grid-column: 2/3;
     grid-row: 2/3;
     align-self: start;
@@ -405,7 +405,7 @@ footer {
 }
 
 /* Album afbeelding */
-.img-player {
+.track-art {
     grid-column: 1/2;
     grid-row: 1/3;
     align-self: center;
