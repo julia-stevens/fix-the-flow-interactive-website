@@ -196,6 +196,7 @@ ol > li {
 .programming {
     @media screen and (min-width: 1100px) {
         display: flex; 
+        gap: 2rem;
         justify-content: space-between;
     }
 }
