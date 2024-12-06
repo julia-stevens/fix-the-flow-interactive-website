@@ -355,7 +355,6 @@ details ol {
             margin: .5rem;
         }
     }
-
 }
 
 /* Player */
@@ -444,13 +443,13 @@ footer {
 
 /* Pauze knop wanneer track aan het spelen is */
 .playpause-track img.pause-track {
-    content: url("/assests/pause.svg");
+    content: url("../assests/pause.svg");
     margin-right: .2rem;
 }
 
 /* Pauze knop wanneer track aan het spelen is */
 .playpause-track img.play-track {
-    content: url("/assests/play.svg");
+    content: url("../assests/play.svg");
 }
 
 .slider-container {
