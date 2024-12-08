@@ -196,8 +196,6 @@ header {
     /* transition: .3s ease-in; */
 } 
 
-
-
 /* Border bottom bij 'RADIO' */
 .nav-links li:nth-child(2) a {
     background-image:linear-gradient(white 0 0);
@@ -361,6 +359,11 @@ header {
     @media screen and (min-width: 1100px) {
         display: none;
     }
+}
+
+main {
+    margin-top: 17rem;
+    margin-bottom: 5rem;
 }
 
 /* Tijdlijn */
@@ -543,7 +546,7 @@ ol > li {
 details {
     cursor: pointer; 
     border-left: 1px solid #CCCCCC;
-    height: 100vh;
+    height: 100%;
 
     ::marker {
         content: '';
@@ -554,7 +557,7 @@ details {
 details[open] {
     flex-grow: 1; 
     padding: 0 1rem 1rem 1rem;
-    height: fit-content;
+    height: 100%;
     /* height: 100vh;
     overflow: auto; */
     container: overig-details / inline-size;
@@ -568,7 +571,7 @@ details[open] {
 /* Verticale text wanneer details gesloten */
 details summary {
     /* writing-mode: vertical-lr; */
-    height: 100%; 
+    height: 100vh; 
     width: auto;
 
     display: flex; 
