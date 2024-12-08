@@ -1,3 +1,58 @@
+// Hamburger navigatie in nav
+const navHamburger = document.querySelector("nav button");
+const navMenu = document.querySelector("nav ul");
+const navButton = document.querySelector(".nav-button img");
+
+navHamburger.addEventListener("click", toggleMenu);
+
+function toggleMenu() {
+    navMenu.classList.toggle("showMenu");
+    navButton.classList.toggle("showMenu");
+
+    if (navMenu.hasAttribute("inert")) {
+        navMenu.removeAttribute("inert");
+    } else {
+        navMenu.setAttribute("inert", true);
+    }
+}
+
+// hamburger als je resized
+function reportWindowSize() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 800) {
+        navMenu.removeAttribute("inert");
+    } else {
+        navMenu.setAttribute("inert", true);
+    }
+}
+
+// checken als het schermbreedte verandert
+window.onresize = reportWindowSize;
+
+// checken bij laden pagina
+reportWindowSize();
+
+// Zenders menu bij nav
+const buttonZenders = document.querySelector(".nav-zenders button");
+const navZenders = document.querySelector(".nav-zenders");
+const buttonImgZenders = document.querySelector(".nav-zenders button img");
+const navZendersUl = document.querySelector(".zenders-menu")
+
+buttonZenders.addEventListener("click", toggleZenders);
+
+function toggleZenders() {
+    navZenders.classList.toggle("showZenders");
+    buttonImgZenders.classList.toggle("showZenders");
+
+    if (navZendersUl.hasAttribute("inert")) {
+        navZendersUl.removeAttribute("inert");
+    } else {
+        navZendersUl.setAttribute("inert", true);
+    }
+}
+
+
 // DETAILS
 // let details = document.querySelector(".details-slam");
 

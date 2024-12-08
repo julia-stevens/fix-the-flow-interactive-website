@@ -40,6 +40,329 @@ button {
     background: none;
 }
 
+:focus-visible {
+    outline: 3px dashed black;
+    outline-offset: 6px;
+}
+
+/* Bron: https://www.geeksforgeeks.org/how-to-add-skip-navigation-links-for-better-web-accessibility-in-html/ */
+.skip-link {
+    color: white; 
+    padding: 1rem;
+    position: absolute; 
+    top: 3rem; 
+    z-index: 9999;
+    left: -10000px;
+}
+
+.skip-link:focus {
+    left: 2rem; 
+}
+
+body {
+    font-size: 16px;
+    --padding-button: .3rem .6rem;
+    --border-button: .5rem;
+    --border-width: 2px;
+}
+
+/* Flex layout nav */
+nav {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+
+    @media screen and (min-width: 800px) {
+        gap: 1rem;
+    }
+}
+
+/* Header boven de main */
+header {
+    position: fixed; 
+    width: 100vw; 
+    top: 0; 
+    z-index: 999;
+}
+
+/* Zender logo */
+.nav-logo {
+    order: 1;
+
+    @media screen and (min-width: 800px) {
+        order: 0; 
+    }
+}
+
+.nav-logo img {
+    width: 110px;
+}
+
+/* Hamburger */
+.nav-button {
+    order: 0;
+
+    @media screen and (min-width: 800px) {
+        display: none;
+    }
+}
+
+/* Hamburger afbeelding */
+.nav-button img {
+    width: 50px;
+    transition: .3s ease-in;
+}
+
+/* Wanneer showMenu getoggled wordt */
+.nav-button img.showMenu {
+    content: url("../assests/hamburger-cross-white.svg");
+    /* transition: .3s ease-in; */
+}
+
+/* Wanneer .showMenu class getoggled, verander afbeelding */
+.nav-button img.showMenu {
+    content: url("../assests/hamburger-cross-white.svg");
+}
+
+/* Call-to-action */
+.nav-whatsapp {
+    order: 2; 
+    padding: var(--padding-button);
+    border-radius: var(--border-button);
+    border-width: var(--border-width);
+
+    @media screen and (min-width: 800px) {
+        display: flex; 
+        align-items: center;
+        gap: .5rem;   
+        padding: var(--padding-button);     
+        border-radius: var(--border-button);
+        border-width: var(--border-width);
+    }
+}
+
+/* Call-to-action afbeelding */
+.nav-whatsapp img {
+    width: 30px;
+
+    @media screen and (min-width: 800px) {
+        width: 25px;
+    }
+}
+
+/* Call-to-action beschrijving */
+.nav-whatsapp figcaption a{
+    display: none;
+
+    @media screen and (min-width: 800px) {
+        display: inline;
+    }
+}
+
+/* Links in navigatie */
+.nav-links {
+    position: absolute;
+    width: 100vw; 
+    translate: -150% 96.5px; 
+    padding: 1rem;
+    display: flex; 
+    transition: .3s ease-in;
+
+    /* Flex layout als parent */
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+
+    @media screen and (min-width: 800px) {
+        position: relative; 
+        translate: 0; 
+        order: 1; 
+        width: auto;
+        padding: 0; 
+        transition: .3s ease-in;
+        flex-grow: 2; 
+
+        /* Flex layout als parent */
+        flex-direction: row; 
+        justify-content: start;
+        gap: 2rem;
+    }
+}
+
+/* Laat menu zien bij .showMenu class */
+.nav-links.showMenu {
+    translate: -1rem 96.5px;
+    /* transition: .3s ease-in; */
+} 
+
+
+
+/* Border bottom bij 'RADIO' */
+.nav-links li:nth-child(2) a {
+    background-image:linear-gradient(white 0 0);
+	background-size:100% .15rem;
+    background-position: bottom right;
+	background-repeat:no-repeat;
+    padding-bottom: 5px;
+}
+
+.nav-links a {
+    text-decoration: none;
+		
+	background-image:linear-gradient(white 0 0);
+	background-size:0% .15em;
+	background-position: right bottom;
+	background-repeat:no-repeat;
+    padding-bottom: 5px;
+	
+	transition: background-size .3s;
+}
+
+/* Bij hover, voeg border bottom toe */
+.nav-links a:hover {
+	background-size: 100% .15em;
+	background-position: left bottom;
+}
+
+/* Flex layout navigatie PROGRAMMERING, DJ'S, PLAYLIST, FREQUENTIES */
+.nav-radio {
+    display: flex; 
+    gap: 2rem;
+    padding: 1rem;
+    overflow-x: auto; 
+    border-bottom: 1px solid #CCCCCC;
+}
+
+/* Border actieve link navigatie PROGRAMMERING, DJ'S, PLAYLIST, FREQUENTIES */
+.nav-radio .text-highlight {
+	background-image:linear-gradient(#E60063 0 0);
+	background-size:100% .15rem;
+	background-repeat:no-repeat;
+    background-position: bottom right;
+    padding-bottom: 5px;
+}
+
+.nav-radio a {
+    text-decoration: none;
+		
+	background-image:linear-gradient(#E60063 0 0);
+	background-size:0% .15em;
+	background-position: right bottom;
+	background-repeat:no-repeat;
+    padding-bottom: 5px;
+	
+	transition: background-size .3s;
+}
+
+/* Bij hover, voeg border bottom toe */
+.nav-radio a:hover {
+	background-size: 100% .15em;
+	background-position: left bottom;
+}
+
+/* Flex layout dagen van de week & scroll bij overflow horizontaal */
+.nav-days {
+    display: flex; 
+    overflow-x: auto; 
+    border-bottom: 1px solid #CCCCCC;
+}
+
+/* Border bij dagen van de week */
+.nav-days span:first-of-type {
+    padding: 1rem;
+    width: 4rem;
+    border-right: 1px solid #CCCCCC;    
+
+    /* Flex layout als parent */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* Bij hover verander tekst kleur */
+.nav-days span:first-of-type:hover {
+    color: #E60063;
+    transition: .2s ease-in-out;
+}
+
+/* Bij hover over het eerste span element, van het tweede list item, van de nav-days (ul); blijft de tekst wit */
+.nav-days li:nth-child(2) span:first-of-type:hover {
+    color: white; 
+}
+
+/* Nummer van datum op een eigen regel door display: block; */
+.nav-days strong {
+    display: block; 
+}
+
+.nav-days a:focus-visible {
+    outline: 3px dashed black;  
+    outline-offset: -.5rem;
+    display: block;
+}
+
+/* Flex layout navigatie zenders */
+.nav-zenders ul {
+    display: flex;
+    align-items: center; 
+    gap: 1.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    border-bottom: 1px solid #CCCCCC;
+
+    @media screen and (min-width: 1100px) {
+        display: none;
+    }
+}
+
+/* Afbeeldingen navigatie zenders */
+.nav-zenders ul img {
+    width: 5rem;
+}
+
+/* Bij hover over logo, vergroot afbeelding */
+/* .nav-zenders ul img:hover {
+    scale: 1.1; 
+    transition: .3s ease-in-out;
+} */
+
+/* Absolute positioning van navigatie met zenders */
+.nav-zenders {
+    position: absolute;
+    width: 100vw;
+    translate: 0% -100%;
+    z-index: -1; 
+    transition: .3s ease-in-out;
+}
+
+/* Wanneer class .showZenders getoggled, verander positie (met transition) */
+.nav-zenders.showZenders {
+    translate: 0% 0%;
+}
+
+/* Wanneer class .showZenders getoggled, verander afbeelding */
+.nav-zenders button img.showZenders {
+    content: url("../assests/arrow-up.svg");
+}
+
+/* Button navigatie zenders */
+.nav-zenders button {
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    padding: 0rem 4rem;
+    border-radius: 0 0 25px 25px;
+    position: absolute;
+    left: 50%; 
+    translate: -50%;
+    top: 100%;
+
+    @media screen and (min-width: 1100px) {
+        display: none;
+    }
+}
+
 /* Tijdlijn */
 aside {
     display: flex; 
