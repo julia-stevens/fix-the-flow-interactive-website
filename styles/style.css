@@ -803,6 +803,22 @@ footer {
     content: url("../assests/play.svg");
 }
 
+.playpause-track img.loadingTrack {
+    content: url("../assests/loading.svg");
+    width: 25px;
+    margin-right: .2rem; 
+    animation: rotate 1.5s 2 ease-in-out;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    } 
+    to {
+        rotate: 360deg;
+    }
+}
+
 .slider-container {
     grid-column: 1/-1;
     grid-row: 3/4;
@@ -900,3 +916,5 @@ input[type="range"]:focus::-moz-range-thumb {
     filter: drop-shadow(0px 0px 8px black);
     outline-offset: 0.125rem;
 }
+
+

@@ -53,18 +53,10 @@ function toggleZenders() {
 }
 
 
-// DETAILS
-// let details = document.querySelector(".details-slam");
-
-// details.addEventListener("click", openDetails);
-
-// function openDetails() {
-//     details.open = true; 
-// }
-
 // PLAYER
 let playPauseButton = document.querySelector(".playpause-track"); // play/pause knop
 let buttonImage = document.querySelector(".playpause-track img"); // play/pause img
+let buttonLabel = document.querySelector(".button-label-state"); // label bij button
 
 let showName = document.querySelector(".show-name"); // h2 element voor show naam
 let trackNameArtist = document.querySelector(".track-name-artist"); // p element voor titel nummer en artiest
@@ -80,7 +72,7 @@ let updateTimer;
 
 let currentTrack = document.createElement("audio"); // nieuwe audio variabele
 
-let trackList = [ // array met content player 
+let trackList = [ // content player 
     {
         // [0] BACK TO BLACK - AMY WINEHOUSE
         path: "./assests/Back-To-Black_Amy-Winehouse.mp3", // path van eerste nummer
@@ -97,11 +89,33 @@ let trackList = [ // array met content player
     }
 ]
 
+let buttonLabelStates =  // object met content voor labels buttons
+    {
+    start: "Speel af",
+    loading: "Laden", 
+    playing: "Pauzeer"
+    }
+
+
 loadTrack(trackIndex); // laad trackIndex
 
-playPauseButton.addEventListener("click", playPauseTrack); // bij klik op knop, activeer functie playPauseTrack
-
+playPauseButton.addEventListener("click", loadingTrack); // bij klik roep loadingTrack aan
+playPauseButton.addEventListener("animationend", loadingTrack); // wanneer loading animation eindigt, toggle 
+playPauseButton.addEventListener("animationend", playTrack); // en start playTrack functie
 seekSlider.addEventListener("change", seekTo);
+
+function loadingTrack() {
+    if (isPlaying === false) { // als er niks afspeelt, start loading animatie
+        buttonImage.classList.toggle("loadingTrack");
+        buttonLabel.textContent = buttonLabelStates.loading;
+    } else { // als er wel wat afspeelt, pauzeer nummer en verander afbeelding en button label state
+        currentTrack.pause();
+        isPlaying = false;
+        buttonImage.classList.remove("pause-track");
+        buttonImage.classList.add("play-track");
+        buttonLabel.textContent = buttonLabelStates.start; 
+    }
+}
 
 function loadTrack(trackIndex) {
     // clear previous seek timer
@@ -113,6 +127,7 @@ function loadTrack(trackIndex) {
     currentTrack.load(); // laad currentTrack variabele
     
     // update details
+    buttonLabel.textContent = buttonLabelStates.start; // button state verandert naar start
     trackNameArtist.textContent = trackList[trackIndex].artist; // laad trackNameArtist met artist uit trackList
     showName.textContent = trackList[trackIndex].name; // laad showName met name uit trackList
     trackArt.src = trackList[trackIndex].image; // laad trackArt met image uit trackList
@@ -124,26 +139,12 @@ function loadTrack(trackIndex) {
     currentTrack.addEventListener("ended", nextTrack);
 }
 
-function playPauseTrack() { 
-    if (isPlaying === false) { // als niks aan het afspelen, play currentTrack, remove play icon, add pause icon, isPlaying = true
-        currentTrack.play(); 
-        isPlaying = true; 
-        buttonImage.classList.remove("play-track");
-        buttonImage.classList.add("pause-track");
-
-    } else { // anders (als wel aan het afspelen), pause currentTrack, remove pause icon, add play icon, isPlaying = false
-        currentTrack.pause();
-        isPlaying = false;
-        buttonImage.classList.remove("pause-track");
-        buttonImage.classList.add("play-track");
-    }
-}
-
 function playTrack() { 
     currentTrack.play(); // play currentTrack, remove play icon, add pause icon, isPlaying = true
     isPlaying = true; 
     buttonImage.classList.remove("play-track");
     buttonImage.classList.add("pause-track");
+    buttonLabel.textContent = buttonLabelStates.playing; // button state verandert naar playing
 }
 
 function nextTrack() { // 
