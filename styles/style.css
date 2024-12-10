@@ -694,15 +694,14 @@ footer {
 /* Grid layout voor content in player */
 .player {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto auto;
     filter: drop-shadow(0px 0px 8px #bebebe);
     border-radius: .5rem;
     width: 90vw;
-    max-width: 25rem;
-    height: 6rem;
+    max-width: 35rem;
+    height: 7rem;
     padding: .5rem;
-
     position: fixed;
     bottom: 1.5rem;
     z-index: 3;
@@ -710,7 +709,7 @@ footer {
 
 /* Titel van show */
 .show-name {
-    grid-column: 2/4;
+    grid-column: 3/4;
     grid-row: 1/2;
     align-self: center;
     justify-self: start;
@@ -719,7 +718,7 @@ footer {
 
 /* Titel van liedje */
 .track-name-artist {
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row: 2/3;
     align-self: start;
     justify-self: start;
@@ -732,7 +731,7 @@ footer {
 
 /* Album afbeelding */
 .track-art {
-    grid-column: 1/2;
+    grid-column: 2/3;
     grid-row: 1/3;
     align-self: center;
     justify-self: left;
@@ -740,26 +739,52 @@ footer {
     border-radius: .2rem;
 }
 
-/* Play knop */
-.playpause-track {
-    grid-column: 3/4;
+.button-label {
+    grid-column: 4/5;
     grid-row: 1/3;
     align-self: center;
     justify-self: right;
+    cursor: pointer; 
+
+    /* FLEX als parent */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        background-image:linear-gradient(#e60063 0 0);
+        background-size:0% .15em;
+        background-position: right bottom;
+        background-repeat:no-repeat;
+        padding-bottom: 2px;
+        
+        transition: background-size .3s;
+    }
+}
+
+.button-label:hover {
+    p {
+        background-size: 100% .15em;
+        background-position: left bottom;
+    }
+}
+
+/* Play knop */
+.playpause-track {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    transition: .2s ease-in;
+    /* transition: .2s ease-in; */
 
     /* Grid als parent om items te centreren */
     display: grid;
     place-items: center;
 }
 
-.playpause-track:hover {
+/* .playpause-track:hover {
     background-color: rgb(251, 0, 238);
     transition: .2s ease-in;
-}
+} */
 
 /* Play SVG afbeelding */
 .playpause-track img {
@@ -782,8 +807,11 @@ footer {
     grid-column: 1/-1;
     grid-row: 3/4;
 
-    margin-left: -.5rem;
-    margin-right: -.5rem;
+	/* FLEX als parent */
+	display: flex; 
+	justify-content: space-around;
+	align-items: center;
+	gap: .5rem;
 }
 
 /* Change the opacity when mouse is hovered */
@@ -797,10 +825,10 @@ footer {
 }
 
 /* Current time & duration niet laten zien */
-.current-time,
+/* .current-time,
 .total-duration {
     display: none;
-}
+} */
 
 /*********** Baseline, reset styles ***********/
 input[type="range"] {
@@ -819,7 +847,7 @@ input[type="range"]:focus {
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
     background-color: #e60063;
-    border-radius: 0rem 0rem .3rem .3rem;
+    border-radius: .3rem .3rem .3rem .3rem;
     height: 0.5rem;
 }
 
@@ -833,6 +861,7 @@ input[type="range"]::-webkit-slider-thumb {
 
     /* Centers thumb on the track */
     background-color: #e60063;
+    border: solid 2.5px white; 
     filter: drop-shadow(0px 0px 8px black);
     border-radius: 0.5rem;
     height: 1rem;
@@ -848,13 +877,14 @@ input[type="range"]:focus::-webkit-slider-thumb {
 /* slider track */
 input[type="range"]::-moz-range-track {
     background-color: #e60063;
-    border-radius: 0rem 0rem .3rem .3rem;
+    border-radius: .3rem .3rem .3rem .3rem;
     height: 0.5rem;
 }
 
 /* slider thumb */
 input[type="range"]::-moz-range-thumb {
     background-color: #e60063;
+    border: solid 2.5px white; 
     filter: drop-shadow(0px 0px 8px black);
     border: none;
 
@@ -865,6 +895,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]:focus::-moz-range-thumb {
-    outline: 3px solid #e60063;
+    background-color: #e60063;
+    border: solid 2.5px white; 
+    filter: drop-shadow(0px 0px 8px black);
     outline-offset: 0.125rem;
 }

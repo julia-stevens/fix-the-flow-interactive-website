@@ -177,19 +177,19 @@ function seekUpdate() {
         seekSlider.value = seekPosition; // plaats op juiste plek in slider
 
         // calculate current time
-        // let currentMinutes = Math.floor(currentTrack.currentTime / 60);
-        // let currentSeconds = Math.floor(currentTrack.currentTime - currentMinutes * 60);
-        // let durationMinutes = Math.floor(currentTrack.duration / 60);
-        // let durationSeconds = Math.floor(currentTrack.duration - durationMinutes * 60);
+        let currentMinutes = Math.floor(currentTrack.currentTime / 60);
+        let currentSeconds = Math.floor(currentTrack.currentTime - currentMinutes * 60);
+        let durationMinutes = Math.floor(currentTrack.duration / 60);
+        let durationSeconds = Math.floor(currentTrack.duration - durationMinutes * 60);
 
         // Add a zero to the single digit time values
-        // if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
-        // if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
-        // if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
-        // if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+        if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+        if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+        if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+        if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
     
         // Display the updated duration
-        // currentTime.textContent = currentMinutes + ":" + currentSeconds;
-        // totalDuration.textContent = durationMinutes + ":" + durationSeconds;
+        currentTime.textContent = currentMinutes + ":" + currentSeconds;
+        totalDuration.textContent = durationMinutes + ":" + durationSeconds;
     }
 }
