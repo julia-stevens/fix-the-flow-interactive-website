@@ -535,7 +535,7 @@ ol > li {
 
     @media screen and (min-width: 1100px) {
         flex-grow: 3; 
-                
+        
         /* FLEX als parent */
         display: flex; 
         justify-content: flex-end;
@@ -570,18 +570,77 @@ details[open] {
 
 /* Verticale text wanneer details gesloten */
 details summary {
-    /* writing-mode: vertical-lr; */
+    writing-mode: vertical-lr;
     height: 100vh; 
     width: auto;
 
+    /* display: flex; 
+    align-items: center; */
+}
+
+.summary-content {
     display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.summary-arrow {
+    width: 30px; 
+    rotate: -90deg; 
+}
+
+summary figure {
+    display: flex; 
+    flex-direction: column;
     align-items: center;
 }
 
+/* summary figure figcaption {
+	order: -1; 
+} */
+
 /* Horizontale text wanneer details geopend */
 details[open] summary {
-    height: 3rem; 
+    writing-mode: horizontal-tb;
+    width: 100%; 
+    max-width: 28rem;
+    height: fit-content; 
     padding: 1rem 0; 
+
+    .summary-arrow {
+        width: 30px; 
+        rotate: 90deg; 
+    }
+
+    .summary-content {
+        display: grid; 
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        justify-content: space-between;
+        gap: 0rem; 
+    }
+
+    .summary-content p {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+
+    .summary-content > img {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .summary-content figure {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        justify-self: end;
+        align-self: center; 
+    }
+
+    .summary-arrow {
+        order: -1; 
+    }
 }
 
 details summary img {

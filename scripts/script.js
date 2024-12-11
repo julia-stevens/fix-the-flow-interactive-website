@@ -91,9 +91,9 @@ let trackList = [ // content player
 
 let buttonLabelStates =  // object met content voor labels buttons
     {
-    start: "Speel af",
-    loading: "Laden", 
-    playing: "Pauzeer"
+        start: "Speel af",
+        loading: "Laden", 
+        playing: "Pauzeer"
     }
 
 
@@ -109,8 +109,8 @@ function loadingTrack() {
         buttonImage.classList.toggle("loadingTrack");
         buttonLabel.textContent = buttonLabelStates.loading;
     } else { // als er wel wat afspeelt, pauzeer nummer en verander afbeelding en button label state
-        currentTrack.pause();
         isPlaying = false;
+        currentTrack.pause();
         buttonImage.classList.remove("pause-track");
         buttonImage.classList.add("play-track");
         buttonLabel.textContent = buttonLabelStates.start; 

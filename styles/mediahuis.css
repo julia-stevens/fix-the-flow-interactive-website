@@ -1,0 +1,328 @@
+/* === EVENTUELE LATEREN TOEVOEGINGEN === */
+
+/* font-size:clamp(1em, 5vw, 2em) */
+/* font-size:clamp(1em, cqw, 2em) */
+
+
+/* === RESET === */
+.reset {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+    list-style: none;
+
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* === GLOBAL === */
+
+body {
+    --font-primary: "Brutal Type", sans-serif;
+
+    --font-size-s: 0.625em;
+    --font-size-m: 0.75em;
+    --font-size-l: 1em;
+    --font-size-xl: 1.75em;
+
+    --line-height-s: 15px;
+    --line-height-m: 18px;
+    --line-height-l: 24px;
+
+    --font-weight-baseline: 900;
+
+    line-height: var(--line-height-l);
+    font-family: var(--font-primary);
+}
+
+/* === KLEUREN === */
+
+/* Veronica */
+.veronica {
+    --brand-primary: #0091FF; 
+    --brand-secondary: #E60063;
+    --brand-footer: #011564;
+    --background-neutral: #fafafa;
+    --brand-neutral: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #8B8B8B;
+    --text-on-brand: #ffffff;   
+}
+
+/* SLAM */
+.slam {
+    --brand-primary: #000000;
+    --brand-secondary: #E60063;
+    --brand-neutral: #222222;
+    --background-neutral: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #5D5D5D;
+}
+
+/* Sublime */
+.sublime {
+    --brand-primary: #1A1E1D;
+    --brand-secondary: #CCFFA3;
+    --brand-neutral: #1A1E1D;
+    --background-neutral: #252929;
+    --text-primary: #FFFFFF;
+    --text-secondary: #8D8F8E;    
+}
+
+.sublime-btn-highlight {
+    --brand-secondary: #65a332;
+}
+
+
+/* 100%NL */
+.honderdp {
+    --brand-primary: #000000;
+    --brand-secondary: #10A637;
+    --brand-neutral: #FAFAFA;
+    --background-neutral: #FFFFFF;
+    --text-primary: #1E1E1E;
+    --text-secondary: #8B8B8B;
+}
+
+/* Kleuren in classes */
+.primary {
+    background-color: var(--brand-primary);
+    /* color: var(--brand-primary) */
+}
+
+.secondary {
+    background-color: var(--brand-secondary);
+    /* color: var(--brand-secondary); */
+}
+
+.footer {
+    background-color: var(--brand-footer);
+    /* color: var(--brand-footer); */
+}
+
+.neutral {
+    background-color: var(--brand-neutral);
+    /* color: var(--brand-neutral); */
+}
+
+.background-neutral {
+    background-color: var(--background-neutral);
+    /* color: var(--background-neutral); */
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    /* background-color: var(--text-secondary); */
+    color: var(--text-secondary);
+}
+
+.text-on-brand {
+    /* background-color: var(--text-on-brand); */
+    color: var(--text-on-brand);
+}
+
+.text-highlight {
+    color: var(--brand-secondary);
+}
+
+/* === TYPOGRAFIE === */
+
+/* @fontface */
+/* Extra Light */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Thin */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* Extra Bold */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Black */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Light */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Brutal Type Normal */
+@font-face {
+    font-family: 'Brutal Type';
+    src: url('../assests/font/BrutalType.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-nav-primary {
+    /* font: var(--font-primary); */
+    /* color: var(--text-on-brand); */
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-baseline);
+}
+
+.font-nav-secondary {
+    /* font: var(--font-primary); */
+    /* color: var(--brand-secondary); */
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-baseline);
+}
+
+.font-card-title {
+    /* font: var(--font-primary); */
+    /* color: var(--text-primary); */
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-baseline);
+}
+
+.font-card-description {
+    /* font: var(--font-primary); */
+    /* color: var(--text-secondary); */
+    font-size: var(--font-size-l);
+}
+
+.font-card-info {
+    /* font: var(--font-primary); */
+    /* color: var(--text-secondary); */
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+}
+
+.font-info {
+    /* font: var(--font-primary); */
+    /* color: var(--text-primary); */
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-baseline);
+}
+
+.font-title {
+    /* font: var(--font-primary); */
+    /* color: var(--text-primary); */
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-baseline);
+}
+
+
+/* === FORMULIEREN === */
+
+.icon-search {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
+    color: var(--text-on-brand);
+    height: 24px;
+    width: 24px;
+}
+
+/* button en link als button */
+.button-highlight {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
+    /* color: var(--text-on-brand); */
+
+    background-color: var(--brand-secondary);
+    border: 1px solid var(--brand-secondary);
+
+    cursor: pointer;
+}
+
+.button-highlight:hover {
+    background-color: var(--brand-neutral);
+    color: var(--brand-secondary);
+}
+
+.input-placeholder {
+    font-size: var(--font-size-l);
+    color: var(--text-secondary);
+    padding: 7px 16px;
+}
+
+.text-input {
+    border: 1px solid #CCCCCC;
+    border-radius: .5rem;
+}
+
+.radio {
+    border: 1px solid #CCCCCC;
+    border-radius: .5rem;    
+}
+
+input[type='radio'] {
+    accent-color: var(--brand-primary);
+}
+
+.checkbox {
+    border: 1px solid #CCCCCC;
+    border-radius: .5rem;    
+}
+
+input[type='checkbox'] {
+    accent-color: var(--brand-secondary);
+}
+
+input[type='search']{
+    border: 1px solid #CCCCCC;
+    border-radius: .5rem;
+}
+
+input[type='tel']{
+    border: 1px solid #CCCCCC;
+    border-radius: .5rem;
+}
+
+input[type='range'] {
+    accent-color: var(--brand-primary);
+}
+
+input[type='submit'] {
+    border: 1px solid #CCCCCC;
+    border-radius: .5rem;
+    padding: .3rem .6rem;
+    background-color: var(--brand-primary);
+    color: var(--text-on-brand);    
+}
