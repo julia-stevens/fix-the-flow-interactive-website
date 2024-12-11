@@ -94,8 +94,7 @@ let buttonLabelStates =  // object met content voor labels buttons
         start: "Speel af",
         loading: "Laden", 
         playing: "Pauzeer"
-    }
-
+}
 
 loadTrack(trackIndex); // laad trackIndex
 
@@ -194,3 +193,31 @@ function seekUpdate() {
         totalDuration.textContent = durationMinutes + ":" + durationSeconds;
     }
 }
+
+// Tekst aanpassen details 
+// let detailsFigcaption = document.querySelectorAll(".details-figcaption");
+// let details = document.querySelectorAll("details");
+// let summaryList = document.querySelectorAll("summary");
+
+// let detailsLabelStates = 
+//     { 
+//         open: "Open", 
+//         close: "Sluit"
+// }
+
+// summaryList.forEach((summary, i) => {
+//     summary.addEventListener("click", () => {
+//         openCloseMenu(i)
+//     }); 
+// });
+
+// function openCloseMenu(i) {
+//     console.log(i);
+//     if (details[i].open === true) {
+//         detailsFigcaption[i].textContent = detailsLabelStates.open;
+//         console.log("bla", i);
+//     } else {
+//         detailsFigcaption[i].textContent = detailsLabelStates.close;
+//         console.log('akjsdhfjkf');
+//     }
+// }   

@@ -361,7 +361,7 @@ header {
     }
 }
 
-main {
+.timeline-main-program {
     margin-top: 17rem;
     margin-bottom: 5rem;
 }
@@ -542,15 +542,39 @@ ol > li {
     }
 }
 
+.summary-arrow{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%; 
+    background-color: #CCCCCC; 
+
+    display: grid; 
+    place-items: center;
+}
+
 /* Styling details */
 details {
     cursor: pointer; 
     border-left: 1px solid #CCCCCC;
     height: 100%;
 
+    padding-top: 17rem;
+
     ::marker {
         content: '';
     }
+}
+
+details[open] .details-figcaption {
+    visibility: hidden;
+    position: relative; 
+}
+
+details[open] .details-figcaption::after {
+    visibility: visible;
+    position: absolute; 
+    content: 'Sluit';
+    translate: -100%; 
 }
 
 /* FLEX layout details wanneer open */
@@ -558,6 +582,8 @@ details[open] {
     flex-grow: 1; 
     padding: 0 1rem 1rem 1rem;
     height: 100%;
+    padding-top: 17rem;
+
     /* height: 100vh;
     overflow: auto; */
     container: overig-details / inline-size;
@@ -585,12 +611,12 @@ details summary {
     gap: 3rem;
 }
 
-.summary-arrow {
-    width: 30px; 
+.summary-arrow img{
+    width: 1.2rem; 
     rotate: -90deg; 
 }
 
-summary figure {
+figure {
     display: flex; 
     flex-direction: column;
     align-items: center;
