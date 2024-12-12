@@ -529,7 +529,7 @@ ol > li {
     }
 }
 
-/* FLEX overige programma's */
+/* FLEX overige programmas */
 .others-program {
     display: none; 
 
@@ -597,11 +597,8 @@ details[open] {
 /* Verticale text wanneer details gesloten */
 details summary {
     writing-mode: vertical-lr;
-    height: 100vh; 
+    height: calc(100vh - (81px + 57px + 89.5938px));
     width: auto;
-
-    /* display: flex; 
-    align-items: center; */
 }
 
 .summary-content {
@@ -615,16 +612,6 @@ details summary {
     width: 1.2rem; 
     rotate: -90deg; 
 }
-
-figure {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-}
-
-/* summary figure figcaption {
-	order: -1; 
-} */
 
 details[open] summary {
     writing-mode: horizontal-tb;
@@ -651,6 +638,60 @@ details summary img {
 
 details[open] summary img {
     rotate: 0deg;
+}
+
+summary figure {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    writing-mode: horizontal-tb;
+
+    figcaption {
+        rotate: 90deg;
+        align-self: flex-start;
+    }
+}
+
+details[open] summary figure {
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "button"
+    "label";
+    gap: .1rem;
+
+    .summary-arrow {
+        grid-area: button; 
+    }
+
+    figcaption {
+        rotate: 0deg;
+        grid-area: label;
+
+    }
+}
+
+details summary figcaption {
+	background-image:linear-gradient(#E60063 0 0);
+	background-size: 0% .15rem;
+	background-repeat:no-repeat;
+    background-position: right bottom;
+    padding-bottom: 5px;
+}
+
+details summary:hover {
+    figcaption{
+        text-decoration: none;
+		
+        background-image:linear-gradient(#E60063 0 0);
+        background-size: 100% .15rem;
+        background-repeat:no-repeat;
+        background-position: left bottom; 
+        padding-bottom: 5px;
+        
+        transition: background-size .3s;
+    }
 }
 
 /* FLEX layout cards in details */
@@ -742,7 +783,7 @@ details ol {
         }
     }
 
-    /*  */
+/*  */
 details[open] summary {
     writing-mode: horizontal-tb;
     width: 100%; 
@@ -784,6 +825,7 @@ details[open] summary {
         order: -1; 
     }
 }
+
 }
 
 /* Player */
@@ -942,12 +984,6 @@ footer {
 .seek-slider {
     width: 100%;
 }
-
-/* Current time & duration niet laten zien */
-/* .current-time,
-.total-duration {
-    display: none;
-} */
 
 /*********** Baseline, reset styles ***********/
 input[type="range"] {
