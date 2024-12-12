@@ -596,7 +596,7 @@ summary figure {
 }
 
 /* Container van '>' */
-.summary-arrow{
+.summary-arrow {
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%; 
@@ -605,6 +605,13 @@ summary figure {
     /* GRID als parent om items te centreren */
     display: grid; 
     place-items: center;
+}
+
+/* Voor container met link naar */
+.summary-arrow a {
+    /* GRID als parent om items te centreren */
+    display: grid; 
+    place-items: center;    
 }
 
 /* Afbeelding in figure '>' */
