@@ -347,10 +347,15 @@ header {
     }
 }
 
+.main-program-title {
+    margin-bottom: 2rem;
+}
+
 /* Margin-top op main, zodat zichtbaar is */
 .timeline-main-program {
     margin-top: 17rem;
     margin-bottom: 5rem;
+    position: relative; 
 }
 
 /* Tijdlijn */
@@ -359,6 +364,7 @@ aside {
     flex-direction: column;
     gap: 3rem;
     position: relative;
+    margin-top: 3.2rem;
 }
 
 /* Gestreepte line tussen uren */
