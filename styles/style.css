@@ -40,6 +40,7 @@ button {
     outline-offset: 6px;
 }
 
+/* MARK: SKIP LINK */
 /* Skip link styling */
 .skip-link {
     color: white; 
@@ -62,6 +63,7 @@ body {
     --border-width: 2px;
 }
 
+/* MARK: NAV */
 /* Flex layout nav */
 nav {
     display: flex; 
@@ -358,7 +360,7 @@ header {
     position: relative; 
 }
 
-/* Tijdlijn */
+/* MARK: TIMELINE */
 aside {
     display: flex; 
     flex-direction: column;
@@ -389,6 +391,7 @@ ol > li {
     overflow: hidden; 
 }
 
+/* MARK: MAIN PROGRAMMERING */
 /* Tijdlijn + Veronica */
 .timeline-main-program {
     display: flex; 
@@ -411,6 +414,7 @@ ol > li {
     gap: 1rem;
 }
 
+/* MARK: SHOW CARD */
 /* Vorgemving show-cards met details */
 .show-card {
     max-width: 28rem;
@@ -541,6 +545,7 @@ ol > li {
     }
 }
 
+/* MARK: DETAILS */
 /* Styling details (gesloten)*/
 details {
     /* cursor: pointer;  */
@@ -640,6 +645,7 @@ details summary:hover {
     }
 }
 
+/* MARK: DETAILS[OPEN] */
 /* Styling & layout details bij [OPEN] */
 /* FLEX layout details wanneer open */
 details[open] {
@@ -826,6 +832,7 @@ details[open] summary {
     }
 }
 
+/* MARK: FOOTER */
 /* Player */
 footer {
     /* Grid layout, player in midden van pagina*/
@@ -918,10 +925,28 @@ footer {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
+    transition: .2s ease;
 
     /* GRID als parent om items te centreren */
     display: grid;
     place-items: center;
+}
+
+/* Hover play/pause button */
+.playpause-track:hover {
+    opacity: .8;
+    transition: .2s ease;
+}
+
+/* Hover play/pause button wanneer nummer afspeelt */
+.playpause-track:hover.playpause-track {
+    opacity: .8;
+    transition: .2s ease;
+}
+
+/* Background-color bij laden van nummer */
+.playpause-track.loadingTrack {
+    background-color: #f594be;
 }
 
 /* Play SVG afbeelding */
@@ -980,6 +1005,7 @@ footer {
     width: 100%;
 }
 
+/* MARK: INPUT player */
 /*********** Baseline, reset styles ***********/
 input[type="range"] {
     -webkit-appearance: none;

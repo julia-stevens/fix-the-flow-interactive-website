@@ -106,11 +106,13 @@ seekSlider.addEventListener("change", seekTo);
 function loadingTrack() {
     if (isPlaying === false) { // als er niks afspeelt, start loading animatie
         buttonImage.classList.toggle("loadingTrack");
+        playPauseButton.classList.toggle("loadingTrack");
         buttonLabel.textContent = buttonLabelStates.loading;
     } else { // als er wel wat afspeelt, pauzeer nummer en verander afbeelding en button label state
         isPlaying = false;
         currentTrack.pause();
         buttonImage.classList.remove("pause-track");
+        playPauseButton.classList.remove("playingTrack");
         buttonImage.classList.add("play-track");
         buttonLabel.textContent = buttonLabelStates.start; 
     }
@@ -143,6 +145,7 @@ function playTrack() {
     isPlaying = true; 
     buttonImage.classList.remove("play-track");
     buttonImage.classList.add("pause-track");
+    playPauseButton.classList.add("playingTrack");
     buttonLabel.textContent = buttonLabelStates.playing; // button state verandert naar playing
 }
 
