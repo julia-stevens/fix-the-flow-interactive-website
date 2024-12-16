@@ -608,13 +608,25 @@ details summary img {
 
 /* FLEX layout .figure */
 summary .figure {
-    display: flex; 
-    flex-direction: row;
-    justify-content: center;
     writing-mode: horizontal-tb;
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "button"
+    "label";
+    gap: .1rem;
+
+    /* Styling container '>' */
+    .summary-arrow {
+        grid-area: button; 
+        width: 30px; 
+        rotate: 90deg; 
+    }
 
     .details-figcaption {
-        rotate: 90deg;
+        grid-area: label;
+        rotate: 0deg;
     }
 }
 
@@ -623,10 +635,12 @@ summary .figure {
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%; 
-    background-color: #CCCCCC; 
+    background-color: #afadad; 
+    transition: .3s; 
 
     /* FLEX als parent om items te centreren */
 	display: flex; 
+    flex-direction: column;
 	align-items: center; 
 	justify-content: center;
 }
@@ -641,7 +655,7 @@ summary .figure {
 /* Afbeelding in .figure '>' */
 .summary-arrow img{
     width: 1.2rem; 
-    rotate: -90deg; 
+    rotate: -180deg; 
 }
 
 /* Styling figcaption */
@@ -650,17 +664,24 @@ details summary .details-figcaption {
 	background-size: 0% .15rem ;
 	background-repeat:no-repeat;
     background-position: right bottom;
+    padding-bottom: 3px;
 }
 
 /* Styling figcaption bij hover */
 details summary:hover {
-    .details-figcaption{
+    .details-figcaption {
         text-decoration: none;
         background-image:linear-gradient(#E60063 0 0);
         background-size: 100% .15rem;
         background-repeat:no-repeat;
         background-position: left bottom;        
         transition: background-size .3s;
+        padding-bottom: 3px;
+    }
+
+    .summary-arrow {
+        opacity: .8;
+        transition: .3s; 
     }
 }
 
@@ -711,29 +732,6 @@ details[open] summary {
     /* Afbeelding radio zender */
     img {
         rotate: 0deg; 
-    }
-
-    /* GRID layout zodat '>' en tekst juiste volgorde hebben */
-    .figure {
-        display: grid; 
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: 
-        "button"
-        "label";
-        gap: .1rem;
-    
-        /* Styling container '>' */
-        .summary-arrow {
-            grid-area: button; 
-            width: 30px; 
-            rotate: 90deg; 
-        }
-    
-        .details-figcaption {
-            grid-area: label;
-            rotate: 0deg;
-        }
     }
 }
 
