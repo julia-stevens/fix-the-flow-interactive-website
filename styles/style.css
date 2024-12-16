@@ -1095,7 +1095,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 /* MARK: a:hover RESET */
-@media (pointer: coarse) {
+/* @media (pointer: coarse) {
     a:hover {
         all: revert-layer; 
     }
@@ -1127,4 +1127,4 @@ input[type="range"]:focus::-moz-range-thumb {
     input:hover {
         all: revert-layer; 
     }
-}
+} */
