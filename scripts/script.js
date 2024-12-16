@@ -35,6 +35,7 @@ reportWindowSize();
 
 // Zenders menu bij nav
 const buttonZenders = document.querySelector(".nav-zenders button");
+const buttonZendersP = document.querySelector(".nav-zenders button p");
 const navZenders = document.querySelector(".nav-zenders");
 const buttonImgZenders = document.querySelector(".nav-zenders button img");
 const navZendersUl = document.querySelector(".zenders-menu")
@@ -44,6 +45,7 @@ buttonZenders.addEventListener("click", toggleZenders);
 function toggleZenders() {
     navZenders.classList.toggle("showZenders");
     buttonImgZenders.classList.toggle("showZenders");
+    buttonZendersP.classList.toggle("showZenders");
 
     if (navZendersUl.hasAttribute("inert")) {
         navZendersUl.removeAttribute("inert");

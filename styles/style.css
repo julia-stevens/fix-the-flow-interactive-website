@@ -311,6 +311,12 @@ header {
 /* Afbeeldingen navigatie zenders */
 .nav-zenders ul img {
     width: 5rem;
+    transition: .2s ease-in; 
+}
+
+.nav-zenders ul img:hover {
+    scale: 1.2;
+    transition: .2s ease-in; 
 }
 
 /* Absolute positioning van navigatie met zenders */
@@ -327,11 +333,6 @@ header {
     translate: 0% 0%;
 }
 
-/* Wanneer class .showZenders getoggled, verander afbeelding */
-.nav-zenders button img.showZenders {
-    content: url("../assests/arrow-up.svg");
-}
-
 /* Button navigatie zenders */
 .nav-zenders button {
     border-left: 1px solid #CCCCCC;
@@ -344,9 +345,27 @@ header {
     translate: -50%;
     top: 100%;
 
+    /* FLEX als parent */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+
     @media screen and (min-width: 1100px) {
         display: none;
     }
+}
+
+/* Wanneer class .showZenders getoggled, verander afbeelding */
+.nav-zenders button img.showZenders {
+    content: url("../assests/arrow-up.svg");
+}
+
+.nav-zenders button p::after {
+    content: "Open";
+}
+
+.nav-zenders button p.showZenders::after {
+    content: "Sluit";
 }
 
 .main-program-title {
