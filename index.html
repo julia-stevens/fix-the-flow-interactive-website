@@ -14,8 +14,8 @@
 <body class="background-neutral veronica">
     <!-- MARK: NAV -->
     <!-- SKIP LINK -->
-    <a href="#programmering-veronica" class="skip-link secondary veronica font-nav-primary">Skip naar de
-        programmering</a>
+    <a href="#programmering-veronica" class="skip-link secondary veronica font-nav-primary">Skip naar de programmering</a>
+    <a href="#live-nummer" class="skip-link secondary veronica font-nav-primary">Skip naar het live nummer</a>
 
     <header>
         <nav class="primary veronica">
@@ -857,7 +857,7 @@
                 <p class="track-name-artist font-card-info text-secondary veronica"></p>
                 <img src="" alt="" class="track-art" width="60">
                 <div class="button-label">
-                    <button class="playpause-track secondary veronica" aria-label="Speel/Pauzeer nummer">
+                    <button id="live-nummer" class="playpause-track secondary veronica" aria-label="Speel/Pauzeer nummer">
                         <img class="play-img" src="./assests/play.svg" alt="" width="30">
                     </button>
                     <p class="font-card-info text-secondary button-label-state"></p>
@@ -866,7 +866,7 @@
                 <!-- PROGRESS BAR -->
                 <div class="slider-container">
                     <div class="current-time font-card-info text-secondary">00:00</div>
-                    <label for="progress" class="progress-bar" aria-label="Progressie bar live nummer"><input type="range" min="1" max="100" value="0" class="seek-slider"></label>
+                    <label for="seek-slider" class="progress-bar" aria-label="Progressie bar live nummer"><input type="range" min="1" max="100" value="0" class="seek-slider"></label>
                     <div class="total-duration font-card-info text-secondary">00:00</div>
                 </div>
             </section>
