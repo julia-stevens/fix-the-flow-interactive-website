@@ -63,6 +63,10 @@ body {
     --border-width: 2px;
 }
 
+main {
+    margin-bottom: 5rem;
+}
+
 /* MARK: NAV */
 /* Flex layout nav */
 nav {
@@ -375,7 +379,6 @@ header {
 /* Margin-top op main, zodat zichtbaar is */
 .timeline-main-program {
     margin-top: 17.8rem;
-    margin-bottom: 5rem;
     position: relative; 
 }
 
@@ -430,14 +433,14 @@ ol > li {
 .main-programming {
     display: flex; 
     flex-direction: column;
-    gap: 1rem;
+    gap: .3rem;
 }
 
 /* MARK: SHOW CARD */
 /* Vorgemving show-cards met details */
 .show-card {
     max-width: 28rem;
-    height: 100%; 
+    /* height: 100%;  */
 
     /* GRID als parent */
     display: grid; 
@@ -541,6 +544,97 @@ ol > li {
     color: transparent;
 }
 
+/* HEIGHT show cards */
+.one-hour {
+    height: 5.8rem;
+
+    grid-template-rows: auto;
+    grid-template-columns: .1fr auto 1fr auto;
+
+    .colored-line {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .title-card {
+        grid-row: 1/2;
+        grid-column: 3/4;
+        align-self: center;
+        justify-self: center;
+        padding: 0; 
+    }
+
+    .time-card {
+        display: none;
+    }
+
+    .info-card {
+        display: none; 
+    }
+
+    .thumbnail-card {
+        grid-row: 1/2;
+        grid-column: 2/3;
+        align-self: center;
+        width: 4.5rem;
+        
+    }
+
+    .dj-card {
+        display: none; 
+    }
+
+    .link-card {
+        grid-row: 1/2; 
+        grid-column: 4/5;
+        
+    }
+}
+
+.two-hours {
+	height: 9.5rem;
+
+    .info-card {
+        display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    }
+
+    .thumbnail-card {
+        grid-row: 1/4;
+        align-self: end;
+    }
+
+    .time-card {
+        display: none; 
+    }
+}
+
+.three-hours {
+	height: 12.5rem;
+}
+
+.three-hours-hp {
+    height: 13rem;
+}
+
+.four-hours {
+	height: 17.5rem;
+}
+
+.six-hours {
+    height: 25rem;
+}
+
+.six-hours-hp {
+    height: 28rem;
+}
+
+.eight-hours {
+    height: 34rem;
+}
 
 /* FLEX bij 1100px tijdlijn + main programming + overige programming */
 .programming {
@@ -557,7 +651,7 @@ ol > li {
 
     @media screen and (min-width: 1100px) {
         flex-grow: 3; 
-        
+
         /* FLEX als parent */
         display: flex; 
         justify-content: flex-end;
@@ -581,7 +675,7 @@ details {
 details ol {
     display: flex; 
     flex-direction: column; 
-    gap: 1rem;
+    gap: .25rem;
 }
 
 /* Verticale text wanneer details gesloten & height summary */
@@ -739,7 +833,6 @@ details[open] summary {
 @container overig-details (width < 20rem) {
     /* GRID layout show-cards op desktop */
     .others-program .show-card {
-
         /* Grid layout overige show cards */
         .show-card {
             grid-template-columns: .1fr auto;
@@ -806,6 +899,7 @@ details[open] summary {
             justify-self: center;
             margin: 0; 
             padding: 0; 
+            white-space: nowrap;
         }
 
         /* Link op card */
@@ -815,6 +909,20 @@ details[open] summary {
             align-self: center;
             justify-self: center;
             margin: .5rem;
+        }
+    }
+
+    /* Een uur durende shows */
+    .one-hour {
+        .thumbnail-card {
+            display: none; 
+        }
+    }
+
+    /* Twee uur durende shows */
+    .two-hours {
+        .dj-card {
+            white-space: nowrap;
         }
     }
 
@@ -1128,3 +1236,7 @@ input[type="range"]:focus::-moz-range-thumb {
         all: revert-layer; 
     }
 } */
+
+
+
+

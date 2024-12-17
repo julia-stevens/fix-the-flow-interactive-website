@@ -56,6 +56,8 @@ function toggleZenders() {
 
 
 // PLAYER
+
+
 let playPauseButton = document.querySelector(".playpause-track"); // play/pause knop
 let buttonImage = document.querySelector(".playpause-track img"); // play/pause img
 let buttonLabel = document.querySelector(".button-label-state"); // label bij button
@@ -70,7 +72,7 @@ let totalDuration = document.querySelector(".total-duration");
 
 let trackIndex = 0; // begin bij eerste track (back to black)
 let isPlaying = false; // bij openen pagina niet afspelen
-let updateTimer; 
+let updateTimer;
 
 let currentTrack = document.createElement("audio"); // nieuwe audio variabele
 
@@ -84,26 +86,71 @@ let trackList = [ // content player
     },
     {
         // [1] KILLER QUEEN - QUEEN
-        path: "./assests/queen-killer-queen.mp3", 
-        name: "Goud van Oud", 
-        artist: "Killer Queen - Queen", 
+        path: "./assests/queen-killer-queen.mp3",
+        name: "Goud van Oud",
+        artist: "Killer Queen - Queen",
         image: "./assests/sheer-heart-attack.jpg"
     }
 ]
 
 let buttonLabelStates =  // object met content voor labels buttons
-    {
-        start: "Speel af",
-        loading: "Laden", 
-        playing: "Pauzeer"
+{
+    start: "Speel af",
+    loading: "Laden",
+    playing: "Pauzeer"
 }
-
-loadTrack(trackIndex); // laad trackIndex
 
 playPauseButton.addEventListener("click", loadingTrack); // bij klik roep loadingTrack aan
 playPauseButton.addEventListener("animationend", loadingTrack); // wanneer loading animation eindigt, toggle 
 playPauseButton.addEventListener("animationend", playTrack); // en start playTrack functie
 seekSlider.addEventListener("change", seekTo);
+
+loadTrack(trackIndex); // laad trackIndex
+// webAudioAPI()
+
+// Web Audio API
+// Source: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
+// Assignement: Add a volume button (<input type="range">) to handle the volume of the background music
+// function webAudioAPI() {
+//     if (!window.AudioContext) return
+
+//     // const audioElement = document.querySelector('audio')
+//     const audioContext = new AudioContext()
+//     // const track = audioContext.createMediaElementSource(audioElement)
+//     const playButton = document.querySelector('button')
+//     const gainNode = audioContext.createGain(); // Assignment: Add a volume button
+//     const volumeControl = document.querySelector("#volume"); // Assignment: Add a volume button
+
+//     track.connect(audioContext.destination)
+//     track.connect(gainNode).connect(audioContext.destination); // Assignment: Add a volume button
+
+
+//     playButton.addEventListener('click', togglePlayBack, false)
+//     volumeControl.addEventListener("input", adjustVolume, false) // Assignment: Add a volume button
+
+//     function togglePlayBack(e) {
+//         // Check if context is in suspended state (autoplay policy)
+//         if (audioContext.state === "suspended") {
+//             audioContext.resume()
+//         }
+
+//         // Play or pause track depending on state
+//         if (playButton.dataset.playing === "false") {
+//             audioElement.play()
+//             playButtonText.textContent = `Pause 🎶`
+//             playButton.dataset.playing = "true"
+//         } else if (playButton.dataset.playing === "true") {
+//             audioElement.pause()
+//             pauseButtonText.textContent = `Play 🎶`
+//             playButton.dataset.playing = "false"
+//         }
+//     }
+//     // Assignment: Add a volumne button
+//     function adjustVolume(e) {
+//         gainNode.gain.value = volumeControl.value;
+//     }
+// }
+
 
 function loadingTrack() {
     if (isPlaying === false) { // als er niks afspeelt, start loading animatie
@@ -116,19 +163,19 @@ function loadingTrack() {
         buttonImage.classList.remove("pause-track");
         playPauseButton.classList.remove("playingTrack");
         buttonImage.classList.add("play-track");
-        buttonLabel.textContent = buttonLabelStates.start; 
+        buttonLabel.textContent = buttonLabelStates.start;
     }
 }
 
 function loadTrack(trackIndex) {
     // clear previous seek timer
-    clearInterval(updateTimer); 
+    clearInterval(updateTimer);
     resetValues();
 
     // load new track
     currentTrack.src = trackList[trackIndex].path; // source currentTrack = haal uit array (start bij 0 (dus eerste nummer) en neem het path)
     currentTrack.load(); // laad currentTrack variabele
-    
+
     // update details
     buttonLabel.textContent = buttonLabelStates.start; // button state verandert naar start
     trackNameArtist.textContent = trackList[trackIndex].artist; // laad trackNameArtist met artist uit trackList
@@ -142,9 +189,9 @@ function loadTrack(trackIndex) {
     currentTrack.addEventListener("ended", nextTrack);
 }
 
-function playTrack() { 
+function playTrack() {
     currentTrack.play(); // play currentTrack, remove play icon, add pause icon, isPlaying = true
-    isPlaying = true; 
+    isPlaying = true;
     buttonImage.classList.remove("play-track");
     buttonImage.classList.add("pause-track");
     playPauseButton.classList.add("playingTrack");
@@ -192,7 +239,7 @@ function seekUpdate() {
         if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
         if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
         if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
-    
+
         // Display the updated duration
         currentTime.textContent = currentMinutes + ":" + currentSeconds;
         totalDuration.textContent = durationMinutes + ":" + durationSeconds;
@@ -226,3 +273,39 @@ function seekUpdate() {
 //         console.log('akjsdhfjkf');
 //     }
 // }   
+
+// Titels op cards
+document.addEventListener("DOMContentLoaded", () => {
+    const titles = document.querySelectorAll('.title-card');
+
+    titles.forEach(title => {
+        const containerWidth = title.parentElement.offsetWidth;
+        const titleWidth = title.scrollWidth;
+
+        const bufferThreshold = 0.9; // 90%
+
+        if (titleWidth > containerWidth * bufferThreshold) {
+            title.classList.add('scroll-title');
+        } else {
+            title.classList.remove('scroll-title');
+        }
+    });
+});
+
+// Re-check on window resize to handle responsive layouts
+window.addEventListener('resize', () => {
+    const titles = document.querySelectorAll('.title-card');
+
+    titles.forEach(title => {
+        const containerWidth = title.parentElement.offsetWidth;
+        const titleWidth = title.scrollWidth;
+
+        const bufferThreshold = 0.9; // 90%
+
+        if (titleWidth > containerWidth * bufferThreshold) {
+            title.classList.add('scroll-title');
+        } else {
+            title.classList.remove('scroll-title');
+        }
+    });
+});
