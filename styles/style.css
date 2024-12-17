@@ -1116,11 +1116,15 @@ footer {
 }
 
 /* Change the opacity when mouse is hovered */
-.seek-slider:hover {
+.progress-bar:hover {
     opacity: 1.0;
 }
 
 /* Breedte slider */
+.progress-bar {
+    width: 100%;
+}
+
 .seek-slider {
     width: 100%;
 }
