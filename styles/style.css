@@ -357,11 +357,15 @@ header {
     @media screen and (min-width: 1100px) {
         display: none;
     }
+
+    img {
+        rotate: 90deg;
+    }
 }
 
 /* Wanneer class .showZenders getoggled, verander afbeelding */
 .nav-zenders button img.showZenders {
-    content: url("../assests/arrow-up.svg");
+    rotate: -90deg;
 }
 
 .nav-zenders button p::after {
