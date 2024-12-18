@@ -37,7 +37,3 @@ ol li {
 .nav-radio { 
     border-top: solid 1px #CECECE; }
 
-/* Wanneer class .showZenders getoggled, verander afbeelding */
-/* .nav-zenders button img.showZenders {
-    content: url("../assests/arrow-up-white.svg");
-} */
