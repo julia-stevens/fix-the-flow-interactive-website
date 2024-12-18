@@ -56,8 +56,6 @@ function toggleZenders() {
 
 
 // PLAYER
-
-
 let playPauseButton = document.querySelector(".playpause-track"); // play/pause knop
 let buttonImage = document.querySelector(".playpause-track img"); // play/pause img
 let buttonLabel = document.querySelector(".button-label-state"); // label bij button
@@ -106,51 +104,6 @@ playPauseButton.addEventListener("animationend", playTrack); // en start playTra
 seekSlider.addEventListener("change", seekTo);
 
 loadTrack(trackIndex); // laad trackIndex
-// webAudioAPI()
-
-// Web Audio API
-// Source: https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
-// Assignement: Add a volume button (<input type="range">) to handle the volume of the background music
-// function webAudioAPI() {
-//     if (!window.AudioContext) return
-
-//     // const audioElement = document.querySelector('audio')
-//     const audioContext = new AudioContext()
-//     // const track = audioContext.createMediaElementSource(audioElement)
-//     const playButton = document.querySelector('button')
-//     const gainNode = audioContext.createGain(); // Assignment: Add a volume button
-//     const volumeControl = document.querySelector("#volume"); // Assignment: Add a volume button
-
-//     track.connect(audioContext.destination)
-//     track.connect(gainNode).connect(audioContext.destination); // Assignment: Add a volume button
-
-
-//     playButton.addEventListener('click', togglePlayBack, false)
-//     volumeControl.addEventListener("input", adjustVolume, false) // Assignment: Add a volume button
-
-//     function togglePlayBack(e) {
-//         // Check if context is in suspended state (autoplay policy)
-//         if (audioContext.state === "suspended") {
-//             audioContext.resume()
-//         }
-
-//         // Play or pause track depending on state
-//         if (playButton.dataset.playing === "false") {
-//             audioElement.play()
-//             playButtonText.textContent = `Pause 🎶`
-//             playButton.dataset.playing = "true"
-//         } else if (playButton.dataset.playing === "true") {
-//             audioElement.pause()
-//             pauseButtonText.textContent = `Play 🎶`
-//             playButton.dataset.playing = "false"
-//         }
-//     }
-//     // Assignment: Add a volumne button
-//     function adjustVolume(e) {
-//         gainNode.gain.value = volumeControl.value;
-//     }
-// }
-
 
 function loadingTrack() {
     if (isPlaying === false) { // als er niks afspeelt, start loading animatie
