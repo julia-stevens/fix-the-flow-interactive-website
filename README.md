@@ -6,7 +6,7 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/fix-the
 ## Inhoudsopgave
 * [Introductie](#introductie)
 * [Beschrijving](#beschrijving)
-* [Belangrijke features]()
+* [Belangrijke features](#belangrijke-features)
 * [Kenmerken](#kenmerken)
 * [Bronnen](#bronnen)
 * [Licentie](#licentie)
