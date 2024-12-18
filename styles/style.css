@@ -368,11 +368,11 @@ header {
     rotate: -90deg;
 }
 
-.nav-zenders button p::after {
+.nav-zenders button span::after {
     content: "Open";
 }
 
-.nav-zenders button p.showZenders::after {
+.nav-zenders button span.showZenders::after {
     content: "Sluit";
 }
 
