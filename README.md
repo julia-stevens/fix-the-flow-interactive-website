@@ -55,7 +55,7 @@ Tot slot is er links en rechts van de progressie balk te zien hoe lang het numme
 https://github.com/user-attachments/assets/4f4c140d-ea07-4260-9f7d-c4c16cfba2a3
 
 ### Uitklapbaar programma overzicht
-De uitklapbare programma overzichten hebben een beschrijving van wat er in de menu's te vinden is, zoals 'Bekijk het programma van SLAM'. Daarnaast staat er een knop met een pijl-icoon en een label met 'Open'. Hiermee weet de gebruiker dat er een menu naar links toe zal openen. Bij het hoveren over de knop verschijnt er een animatie en verlaagd de helderheid van de knop. Wanneer het programma geopend is, verandert de pijl van richting, en wijst naar rechts en staat er 'Sluit'. Hiermee weet de gebruiker dat het menu zich naar rechts toe zal sluiten. 
+De uitklapbare programma overzichten hebben een beschrijving van wat er in de menu's te vinden is, zoals 'Bekijk het programma van SLAM'. Daarnaast staat er een knop met een pijl-icoon en een label met 'Open'. Hiermee weet de gebruiker dat er een menu naar links toe zal openen. Bij het hoveren over de knop verschijnt er een animatie en verlaagt de helderheid van de knop. Wanneer het programma geopend is, verandert de pijl van richting, en wijst naar rechts en staat er 'Sluit'. Hiermee weet de gebruiker dat het menu zich naar rechts toe zal sluiten. 
 
 https://github.com/user-attachments/assets/bc1497e8-9f65-44c0-966b-5235de5db546
 
