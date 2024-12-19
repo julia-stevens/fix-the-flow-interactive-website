@@ -1,5 +1,3 @@
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/fix-the-flow-interactive-website/blob/main/docs/INSTRUCTIONS.md)
-
 # Radioguide - Mediahuis/Triple
 ## Sprint 5: Fix the Flow Interactive Website 
 
